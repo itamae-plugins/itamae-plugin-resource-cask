@@ -1,6 +1,6 @@
 # Itamae::Plugin::Resource::Cask
 
-TODO: Write a gem description
+[Itamae](https://github.com/ryotarai/itamae) resource plugin to manage homebrew cask packages.
 
 ## Installation
 
@@ -20,7 +20,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require "itamae/plugin/resource/cask"
+
+cask "google-chrome"
+```
 
 ## Contributing
 
