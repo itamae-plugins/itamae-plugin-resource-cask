@@ -1,3 +1,5 @@
+require "itamae/resource/base"
+
 module Itamae
   module Plugin
     module Resource
