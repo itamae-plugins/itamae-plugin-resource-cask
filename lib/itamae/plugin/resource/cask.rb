@@ -4,21 +4,25 @@ module Itamae
   module Plugin
     module Resource
       class Cask < Itamae::Resource::Base
-        define_attribute :action, default: :create
-        define_attribute :formula, type: String, default_name: true
+        define_attribute :action, default: :install
+        define_attribute :target, type: String, default_name: true
 
         def set_current_attributes
           super
           ensure_brew_cask_availability
 
-          result = run_command("brew cask list | grep '#{attributes.formula}$'", error: false)
+          result = run_command("brew cask list | grep '#{attributes.target}$'", error: false)
           current.exist = result.exit_status == 0
         end
 
-        def action_create(options)
+        def action_install(options)
           unless current.exist
-            run_command(["brew", "cask", "install", attributes.formula])
+            run_command(["brew", "cask", "install", attributes.target])
           end
+        end
+
+        def action_alfred(options)
+          run_command(["brew", "cask", "alfred", attributes.target])
         end
 
         private
