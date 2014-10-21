@@ -23,7 +23,13 @@ Or install it yourself as:
 ```ruby
 require "itamae/plugin/resource/cask"
 
+# brew cask install google-chrome
 cask "google-chrome"
+
+# brew cask alfred link
+cask "link" do
+  action :alfred
+end
 ```
 
 ## Contributing
