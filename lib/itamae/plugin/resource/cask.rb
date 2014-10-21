@@ -1,10 +1,11 @@
-require "itamae/plugin/resource/cask/version"
-
 module Itamae
   module Plugin
     module Resource
-      module Cask
-        # Your code goes here...
+      class Cask < Itamae::Resource::Base
+        define_attribute :action, default: :create
+
+        def action_create(options)
+        end
       end
     end
   end
