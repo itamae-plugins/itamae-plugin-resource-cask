@@ -6,6 +6,7 @@ module Itamae
       class Cask < Itamae::Resource::Base
         define_attribute :action, default: :install
         define_attribute :target, type: String, default_name: true
+        define_attribute :options, type: String, default: "--appdir=/Applications"
 
         def set_current_attributes
           super
