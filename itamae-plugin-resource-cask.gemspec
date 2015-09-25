@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "itamae-plugin-resource-cask"
-  spec.version       = "0.0.4"
+  spec.version       = "0.1.0"
   spec.authors       = ["Takashi Kokubun"]
   spec.email         = ["takashikkbn@gmail.com"]
   spec.summary       = %q{Itamae resource plugin to manage homebrew cask packages.}
