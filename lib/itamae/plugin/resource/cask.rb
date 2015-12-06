@@ -4,7 +4,7 @@ module Itamae
   module Plugin
     module Resource
       class Cask < Itamae::Resource::Base
-        BREW_CASK = '/usr/local/bin/brew-cask'
+        BREW_CASK = 'brew-cask'
 
         define_attribute :action, default: :install
         define_attribute :target, type: String, default_name: true
@@ -14,7 +14,7 @@ module Itamae
           super
           ensure_brew_cask_availability
 
-          result = run_command("#{BREW_CASK} list | grep '#{attributes.target}$'", error: false)
+          result = run_command("#{brew_cask_list} | grep '#{attributes.target}$'", error: false)
           current.exist = result.exit_status == 0
         end
 
@@ -30,8 +30,13 @@ module Itamae
 
         private
 
+        # Optimized `brew cask list`
+        def brew_cask_list
+          "ls -1 /opt/homebrew-cask/Caskroom/"
+        end
+
         def ensure_brew_cask_availability
-          if run_command("#{BREW_CASK} > /dev/null", error: false).exit_status != 0
+          if run_command("which -s #{BREW_CASK}", error: false).exit_status != 0
             raise "`brew cask` command is not available. Please install brew cask."
           end
         end
