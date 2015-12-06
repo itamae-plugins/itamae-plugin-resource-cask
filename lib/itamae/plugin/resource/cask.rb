@@ -4,7 +4,7 @@ module Itamae
   module Plugin
     module Resource
       class Cask < Itamae::Resource::Base
-        BREW_CASK = '/usr/local/bin/brew-cask'
+        BREW_CASK = 'brew-cask'
 
         define_attribute :action, default: :install
         define_attribute :target, type: String, default_name: true
