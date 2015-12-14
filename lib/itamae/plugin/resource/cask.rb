@@ -6,7 +6,7 @@ module Itamae
       class Cask < Itamae::Resource::Base
         define_attribute :action, default: :install
         define_attribute :target, type: String, default_name: true
-        define_attribute :options, type: String, default: "--appdir=/Applications"
+        define_attribute :options, type: [String, Array], default: "--appdir=/Applications"
 
         def set_current_attributes
           super
@@ -18,12 +18,12 @@ module Itamae
 
         def action_install(options)
           unless current.exist
-            run_command(["brew", "cask", "install", attributes.target])
+            run_command(["brew", "cask", "install", *Array(attributes.options), attributes.target])
           end
         end
 
         def action_alfred(options)
-          run_command(["brew", "cask", "alfred", attributes.target])
+          run_command(["brew", "cask", "alfred", *Array(attributes.options), attributes.target])
         end
 
         private
