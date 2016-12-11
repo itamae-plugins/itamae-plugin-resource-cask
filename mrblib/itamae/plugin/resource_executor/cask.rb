@@ -1,7 +1,7 @@
 module MItamae
   module Plugin
     module ResourceExecutor
-      class Cask < MItamae::ResourceExecutor::Base
+      class Cask < ::MItamae::ResourceExecutor::Base
         def apply
           ensure_brew_cask_availability
 
