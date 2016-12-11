@@ -2,7 +2,7 @@ module MItamae
   module Plugin
     module ResourceExecutor
       class Cask < MItamae::ResourceExecutor::Base
-        def apply(current, desired)
+        def apply
           ensure_brew_cask_availability
 
           if !current.exist && desired.exist
