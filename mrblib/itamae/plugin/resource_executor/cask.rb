@@ -1,4 +1,4 @@
-module MItamae
+module ::MItamae
   module Plugin
     module ResourceExecutor
       class Cask < ::MItamae::ResourceExecutor::Base
