@@ -1,4 +1,4 @@
-module MItamae
+module ::MItamae
   module Plugin
     module Resource
       class Cask < ::MItamae::Resource::Base
