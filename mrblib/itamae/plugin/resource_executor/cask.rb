@@ -3,7 +3,6 @@ module ::MItamae
     module ResourceExecutor
       class Cask < ::MItamae::ResourceExecutor::Base
         def apply
-          ensure_brew_cask_availability
 
           if !current.exist && desired.exist
             run_command(["brew", "cask", "install", *Array(desired.options), desired.target])
@@ -35,13 +34,7 @@ module ::MItamae
 
         # Optimized `brew cask list`
         def brew_cask_list
-          "ls -1 /opt/homebrew-cask/Caskroom/"
-        end
-
-        def ensure_brew_cask_availability
-          if run_command("test -d $(brew --prefix)/Library/Taps/caskroom/homebrew-cask", error: false).exit_status != 0
-            raise "`brew cask` command is not available. Please install brew cask."
-          end
+          "ls -1 $(brew --prefix)/Caskroom"
         end
       end
     end
