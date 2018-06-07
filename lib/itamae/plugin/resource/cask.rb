@@ -10,7 +10,6 @@ module Itamae
 
         def set_current_attributes
           super
-          ensure_brew_cask_availability
 
           result = run_command("#{brew_cask_list} | grep '#{attributes.target}$'", error: false)
           current.exist = result.exit_status == 0
@@ -31,12 +30,6 @@ module Itamae
         # Optimized `brew cask list`
         def brew_cask_list
           "ls -1 /opt/homebrew-cask/Caskroom/"
-        end
-
-        def ensure_brew_cask_availability
-          if run_command("test -d $(brew --prefix)/Library/Taps/caskroom/homebrew-cask", error: false).exit_status != 0
-            raise "`brew cask` command is not available. Please install brew cask."
-          end
         end
       end
     end
