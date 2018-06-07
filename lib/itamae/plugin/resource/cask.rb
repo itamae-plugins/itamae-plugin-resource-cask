@@ -29,7 +29,7 @@ module Itamae
 
         # Optimized `brew cask list`
         def brew_cask_list
-          "ls -1 /opt/homebrew-cask/Caskroom/"
+          "ls -1 $(brew --prefix)/Caskroom"
         end
       end
     end
