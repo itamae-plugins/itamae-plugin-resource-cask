@@ -6,7 +6,7 @@ module ::MItamae
         define_attribute :target, type: String, default_name: true
         define_attribute :options, type: [String, Array], default: "--appdir=/Applications"
 
-        self.available_actions = [:install, :alfred]
+        self.available_actions = [:install, :remove, :alfred]
       end
     end
   end

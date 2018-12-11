@@ -8,6 +8,10 @@ module ::MItamae
             run_command(["brew", "cask", "install", *Array(desired.options), desired.target])
           end
 
+          if current.exist && !desired.exist
+            run_command(["brew", "cask", "uninstall", desired.target])
+          end
+
           if desired.alfred_linked
             run_command(["brew", "cask", "alfred", *Array(desired.options), desired.target])
           end
@@ -20,6 +24,9 @@ module ::MItamae
           when :install
             result = run_command("#{brew_cask_list} | grep '#{attributes.target}$'", error: false)
             current.exist = (result.exit_status == 0)
+          when :remove
+            result = run_command("#{brew_cask_list} | grep '#{attributes.target}$'", error: false)
+            current.exist = (result.exit_status == 0)
           end
         end
 
@@ -27,6 +34,8 @@ module ::MItamae
           case action
           when :install
             desired.exist = true
+          when :remove
+            desired.exist = false
           when :alfred
             desired.alfred_linked = true
           end
