@@ -21,6 +21,12 @@ module Itamae
           end
         end
 
+        def action_remove(options)
+          unless current.exist
+            run_command(["brew", "cask", "uninstall", attributes.target])
+          end
+        end
+
         def action_alfred(options)
           run_command(["brew", "cask", "alfred", *Array(attributes.options), attributes.target])
         end
