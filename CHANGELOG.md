@@ -1,5 +1,23 @@
 # Change Log
 
+## [Unreleased](https://github.com/k0kubun/itamae-plugin-resource-cask/tree/HEAD)
+
+[Full Changelog](https://github.com/k0kubun/itamae-plugin-resource-cask/compare/v0.2.3...HEAD)
+
+**Merged pull requests:**
+
+- Support uninstall operation [\#8](https://github.com/k0kubun/itamae-plugin-resource-cask/pull/8) ([hirocaster](https://github.com/hirocaster))
+
+## [v0.2.3](https://github.com/k0kubun/itamae-plugin-resource-cask/tree/v0.2.3) (2018-06-07)
+[Full Changelog](https://github.com/k0kubun/itamae-plugin-resource-cask/compare/v0.2.2...v0.2.3)
+
+**Merged pull requests:**
+
+- homebrew-cask has been merged into homebrew-core [\#7](https://github.com/k0kubun/itamae-plugin-resource-cask/pull/7) ([kenchan](https://github.com/kenchan))
+- Change module name to top-level [\#6](https://github.com/k0kubun/itamae-plugin-resource-cask/pull/6) ([gongo](https://github.com/gongo))
+- Fix  repository url [\#5](https://github.com/k0kubun/itamae-plugin-resource-cask/pull/5) ([takkanm](https://github.com/takkanm))
+- Port cask resource for itamae-mruby [\#4](https://github.com/k0kubun/itamae-plugin-resource-cask/pull/4) ([k0kubun](https://github.com/k0kubun))
+
 ## [v0.2.2](https://github.com/k0kubun/itamae-plugin-resource-cask/tree/v0.2.2) (2015-12-14)
 [Full Changelog](https://github.com/k0kubun/itamae-plugin-resource-cask/compare/v0.2.1...v0.2.2)
 
